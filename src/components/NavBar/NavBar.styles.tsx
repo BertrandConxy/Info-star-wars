@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { theme } from '../../infrastructure/theme'
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
-import {GrClose} from 'react-icons/gr'
+import { IoClose } from 'react-icons/io5'
 
 export const NavContainer = styled.div`
   display: flex;
@@ -11,14 +11,14 @@ export const NavContainer = styled.div`
   border-bottom: 1px solid;
   border-color: ${theme.colors.ui.secondary};
   padding: ${theme.space[3]};
-  z-index: -11;
 `
 
 export const NavLinks = styled.div`
-@media screen and (max-width: 768px) {
-  display: flex;
- flex-flow: column;  
-}
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
 `
 
 export const NavBox = styled.div`
@@ -28,6 +28,9 @@ export const NavBox = styled.div`
   align-items: center;
   @media screen and (max-width: 768px) {
     flex-flow: column;
+    padding: 1rem;
+    align-items: flex-start;
+    gap: 1rem;
     z-index: 11;
     background-color: gray;
     width: 100%;
@@ -54,7 +57,6 @@ export const LinkItem = styled(Link)`
   &:hover {
     color: ${theme.colors.ui.error};
   }
-
 `
 
 export const HamburgerButton = styled(FaBars)`
@@ -70,12 +72,12 @@ export const HamburgerButton = styled(FaBars)`
   }
 `
 
-export const CloseButton = styled(GrClose)`
+export const CloseButton = styled(IoClose)`
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
-    font-size: 2.3rem;
-    top: 0;
+    font-size: 2.7rem;
+    top: -16px;
     right: 0;
     position: absolute;
     cursor: pointer;
