@@ -14,9 +14,9 @@
 :root {
   font-family: 'Roboto Mono', monospace;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #FFFFFFDE;
   background-color: #242424;
-
+  letter-spacing: 1.5px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,3 +24,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* * Defines what 1rem is */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}

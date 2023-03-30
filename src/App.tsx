@@ -1,13 +1,17 @@
+import { Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout'
-import { ThemeProvider } from 'styled-components'
-import { theme } from './infrastructure/theme'
+import Home from './pages/home'
+import Characters from './pages/characters'
+import Character from './pages/character'
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <h3>Hello</h3>
-      </Layout>
-    </ThemeProvider>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/characters" element={<Characters />} />
+        <Route path="/characters/:characterName" element={<Character />} />
+      </Routes>
+    </Layout>
   )
 }

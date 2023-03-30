@@ -1,10 +1,10 @@
 export const colors = {
     brand: {
-      primary: "#F1F1F1",
+      primary: "#FFFFFFDE",
       secondary: "#757575",
     },
     ui: {
-      primary: "#FFFFFF",
+      primary: "#FFFFFFDE",
       secondary: "#F1F1F1",
       tertiary: "#757575",
       quaternary: "#242424",
