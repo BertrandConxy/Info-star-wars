@@ -1,8 +1,10 @@
+import Layout from "./pages/layout"
 
-function App() {
+export default function App() {
  return (
-  <h1>Hello world</h1>
+  <Layout>
+    <h1>Hello</h1>
+  </Layout>
  )
 }
 
-export default App
