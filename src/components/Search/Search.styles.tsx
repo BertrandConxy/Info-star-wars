@@ -10,3 +10,16 @@ export const SearchInput  = styled.input`
     outline: 1px solid rgba(255, 255, 255, 0.5);
  }
 `
+
+export const SearchButton = styled.button`
+background-color: transparent;
+border: none;
+cursor: pointer;
+`
+
+export const Form = styled.form`
+display: flex;
+justify-content: center;
+align-items: center;
+gap: ${theme.sizes[0]};
+`
