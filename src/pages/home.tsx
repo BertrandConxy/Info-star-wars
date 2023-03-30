@@ -17,21 +17,21 @@ interface iImageData {
 const imageData:iImageData[] = [
   {
     id: 1,
-    imagePath: Padmi,
+    imagePath: Robot,
     title: 'Welcome to the info star wars',
     subTitle: 'The platform where you can find information about star wars series'
   },
   {
     id: 2,
     imagePath: Yoda,
-    title: 'Welcome to the info star wars',
-    subTitle: 'The platform where you can find information about star wars series'
+    title: 'You can find all the characters',
+    subTitle: 'The info star wars provides you with all the characters in the series'
   },
   {
     id: 3,
-    imagePath: Robot,
-    title: 'Welcome to the info star wars',
-    subTitle: 'The platform where you can find information about star wars series'
+    imagePath: Padmi,
+    title: 'View the profile of each character in the series',
+    subTitle: 'The info star wars provides profile of each character in the series'
   }
 ]
 export default function Home() {
