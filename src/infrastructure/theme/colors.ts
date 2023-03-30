@@ -11,6 +11,7 @@ export const colors = {
       disabled: "#DEDEDE",
       muted: "#C6DAF7",
       error: "#D0421B",
+      danger: "#C2000A",
       success: "#138000",
     },
     bg: {

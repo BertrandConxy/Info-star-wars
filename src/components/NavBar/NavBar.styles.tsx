@@ -53,9 +53,14 @@ export const LinkItem = styled(Link)`
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.ui.primary};
   margin-right: ${theme.space[2]};
-  transition: 1s;
+  transition: 0.5s;
   &:hover {
-    color: ${theme.colors.ui.error};
+    color: ${theme.colors.ui.danger};
+    text-shadow: 0.09rem -0.09rem 0.2rem red;
+  }
+  &:active {
+    color: ${theme.colors.ui.danger};
+    text-shadow: 0.09rem -0.09rem 0.2rem red;
   }
 `
 
