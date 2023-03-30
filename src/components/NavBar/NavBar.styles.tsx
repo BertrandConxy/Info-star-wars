@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import { IoClose } from 'react-icons/io5'
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@ export const NavLinks = styled.div`
   @media screen and (max-width: 768px) {
     display: flex;
     flex-flow: column;
-    gap: 1rem;
+    gap: ${theme.sizes[1]};
   }
 `
 
@@ -28,11 +28,11 @@ export const NavBox = styled.div`
   align-items: center;
   @media screen and (max-width: 768px) {
     flex-flow: column;
-    padding: 1rem;
+    padding: ${theme.sizes[1]};
     align-items: flex-start;
-    gap: 1rem;
+    gap: ${theme.sizes[1]};
     z-index: 11;
-    background-color: gray;
+    background-color: ${theme.colors.ui.tertiary};
     width: 100%;
     top: 0;
     left: 0;
@@ -63,8 +63,8 @@ export const HamburgerButton = styled(FaBars)`
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
-    font-size: 2.3rem;
-    top: 0;
+    font-size: ${theme.sizes[2]};
+    top: -10px;
     right: 0;
     position: absolute;
     cursor: pointer;
@@ -76,8 +76,8 @@ export const CloseButton = styled(IoClose)`
   display: none;
   @media screen and (max-width: 768px) {
     display: block;
-    font-size: 2.7rem;
-    top: -16px;
+    font-size: ${theme.sizes[2]};
+    top: -${theme.sizes[1]};
     right: 0;
     position: absolute;
     cursor: pointer;

@@ -38,6 +38,8 @@ html {
 }
 
 body {
+  height: 100%;
+  position: relative;
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-size: 1.4rem;
