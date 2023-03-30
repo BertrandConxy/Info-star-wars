@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { theme } from '../../infrastructure/theme'
 import { Link } from 'react-router-dom'
+import { FaBars } from 'react-icons/fa'
+import {GrClose} from 'react-icons/gr'
 
 export const NavContainer = styled.div`
   display: flex;
@@ -9,14 +11,40 @@ export const NavContainer = styled.div`
   border-bottom: 1px solid;
   border-color: ${theme.colors.ui.secondary};
   padding: ${theme.space[3]};
+  z-index: -11;
 `
 
-export const NavLinks = styled.div``
+export const NavLinks = styled.div`
+@media screen and (max-width: 768px) {
+  display: flex;
+ flex-flow: column;  
+}
+`
+
+export const NavBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-flow: column;
+    z-index: 11;
+    background-color: gray;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+`
 
 export const BrandLink = styled(Link)`
   font-family: ${theme.fonts.brand};
   font-size: ${theme.fontSizes.h1};
   color: ${theme.colors.ui.primary};
+  flex-grow: 1;
+  @media screen and (max-width: 768px) {
+    font-size: ${theme.fontSizes.h3};
+  }
 `
 export const LinkItem = styled(Link)`
   font-family: ${theme.fonts.heading};
@@ -24,6 +52,33 @@ export const LinkItem = styled(Link)`
   margin-right: ${theme.space[2]};
   transition: 1s;
   &:hover {
-    color: ${theme.colors.ui.error}
+    color: ${theme.colors.ui.error};
+  }
+
+`
+
+export const HamburgerButton = styled(FaBars)`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    font-size: 2.3rem;
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-100%, 75%);
+  }
+`
+
+export const CloseButton = styled(GrClose)`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    font-size: 2.3rem;
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-100%, 75%);
   }
 `

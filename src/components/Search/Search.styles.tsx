@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../infrastructure/theme'
+import { FaSearch } from 'react-icons/fa'
 
 export const SearchInput  = styled.input`
  padding: ${theme.sizes[0]};
@@ -22,4 +23,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: ${theme.sizes[0]};
+`
+
+export const SearchIcon  = styled(FaSearch)`
+font-size: 2rem;
+cursor: pointer;
 `

@@ -1,12 +1,11 @@
-import { SearchInput, SearchButton, Form } from './Search.styles'
-import SearchIcon from '@mui/icons-material/Search'
+import { SearchInput, SearchButton, SearchIcon, Form } from './Search.styles'
 
 export default function Search() {
   return (
     <Form>
       <SearchInput type="search" placeholder="Search character..." />
       <SearchButton type="submit">
-        <SearchIcon fontSize='large' />
+        <SearchIcon />
       </SearchButton>
     </Form>
   )
