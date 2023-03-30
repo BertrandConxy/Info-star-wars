@@ -10,6 +10,7 @@ interface Props {
 const View = styled.div`
 min-height: 100vh;
 position: relative;
+padding-bottom: 8rem;
 `
 
 export default function Layout({ children }: Props) {
