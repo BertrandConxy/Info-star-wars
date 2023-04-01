@@ -2,6 +2,7 @@ import { useState } from "react";
 import { iCharacter } from "../typeDefs/character";
 import { charactersArray } from "../data/characters";
 import CharacterCard from "../components/CharacterCard";
+import GridLayout from "../components/Common/GridLayout";
 
 function Characters({ characters=charactersArray }:{characters:iCharacter[]}) { 
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,9 +18,15 @@ function Characters({ characters=charactersArray }:{characters:iCharacter[]}) {
     const end = start + charactersPerPage;
     const currentCharacters = characters.slice(start, end);
 
-    return currentCharacters.map(({key, birthYear, eyeColor, gender, hairColor, name}) => (
-      <CharacterCard key={key} name={name} hairColor={hairColor} eyeColor={eyeColor} birthYear={birthYear} gender={gender}  />
-    ));
+    return(
+      <GridLayout>
+        {
+          currentCharacters.map(({key, birthYear, eyeColor, gender, hairColor, name}) => (
+            <CharacterCard key={key} name={name} hairColor={hairColor} eyeColor={eyeColor} birthYear={birthYear} gender={gender}  />
+          ))
+        }
+      </GridLayout>
+    )
   };
 
   const renderPagination = () => {
