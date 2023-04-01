@@ -1,5 +1,5 @@
 export interface iCharacter {
-    id: number;
+    key: number;
     name: string;
     birthYear: string;
     gender: string;

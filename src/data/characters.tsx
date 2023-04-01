@@ -2,7 +2,7 @@ import { iCharacter } from "../typeDefs/character"
 
 export const charactersArray:iCharacter[] = [
     {
-      id: 1,
+      key: 1,
       name: 'Luke Skywalker',
       birthYear: '19BBY',
       gender: 'male',
@@ -10,7 +10,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'blue'
     },
     {
-      id: 2,
+      key: 2,
       name: 'C-3PO',
       birthYear: '112BBY',
       gender: 'n/a',
@@ -18,7 +18,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'yellow'
     },
     {
-      id: 3,
+      key: 3,
       name: 'Darth Vader',
       birthYear: '42.9BBY',
       gender: 'male',
@@ -26,7 +26,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'yellow'
     },
     {
-      id: 4,
+      key: 4,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -34,7 +34,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 5,
+      key: 5,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -42,7 +42,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 6,
+      key: 6,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -50,7 +50,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 7,
+      key: 7,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -58,7 +58,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 8,
+      key: 8,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -66,7 +66,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 9,
+      key: 9,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -74,7 +74,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 10,
+      key: 10,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',
@@ -82,7 +82,7 @@ export const charactersArray:iCharacter[] = [
       eyeColor: 'brown'
     },
     {
-      id: 11,
+      key: 11,
       name: 'Leia Organa',
       birthYear: '19BBY',
       gender: 'female',

@@ -9,24 +9,7 @@ import {
 } from './NavBar.styles'
 import Search from '../Search'
 import { useState, useEffect } from 'react'
-interface iLink {
-  id: number
-  path: string
-  text: string
-}
-
-const Links: iLink[] = [
-  {
-    id: 1,
-    path: '/',
-    text: 'Home',
-  },
-  {
-    id: 2,
-    path: '/characters',
-    text: 'Characters',
-  },
-]
+import { Links } from '../../data/navigation'
 
 export default function NavBar() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
@@ -42,7 +25,6 @@ export default function NavBar() {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth)
     }
-
     window.addEventListener('resize', changeWidth)
     return () => {
       window.removeEventListener('resize', changeWidth)

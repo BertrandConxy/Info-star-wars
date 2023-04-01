@@ -1,4 +1,3 @@
-
 import { CarouselContainer, CarouselImage, CarouselContent, Title, SubTitle } from './CarouselCard.styles'
 
 interface iCarousel {

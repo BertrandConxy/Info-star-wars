@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { iCharacter } from "../typeDefs/character";
 import { charactersArray } from "../data/characters";
+import CharacterCard from "../components/CharacterCard";
 
-
-function Characters({ characters=charactersArray }:{characters:iCharacter[]}) {
+function Characters({ characters=charactersArray }:{characters:iCharacter[]}) { 
   const [currentPage, setCurrentPage] = useState(1);
   const charactersPerPage = 5;
   const totalPages = Math.ceil(characters.length / charactersPerPage);
@@ -18,16 +17,8 @@ function Characters({ characters=charactersArray }:{characters:iCharacter[]}) {
     const end = start + charactersPerPage;
     const currentCharacters = characters.slice(start, end);
 
-    return currentCharacters.map((character) => (
-      <div key={character.id}>
-        <h2>{character.name}</h2>
-        <p>Age: {character.birthYear}</p>
-        <p>Email: {character.eyeColor}</p>
-        <p>Email: {character.gender}</p>
-        <p>Email: {character.hairColor}</p>
-        <p>Email: {character.hairColor}</p>
-        {/* Add any other information you want to display */}
-      </div>
+    return currentCharacters.map(({key, birthYear, eyeColor, gender, hairColor, name}) => (
+      <CharacterCard key={key} name={name} hairColor={hairColor} eyeColor={eyeColor} birthYear={birthYear} gender={gender}  />
     ));
   };
 
