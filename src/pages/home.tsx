@@ -34,6 +34,7 @@ const imageData:iImageData[] = [
     subTitle: 'The info star wars provides profile of each character in the series'
   }
 ]
+
 export default function Home() {
   return (
     <Swiper
