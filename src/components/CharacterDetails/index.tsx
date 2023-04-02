@@ -28,6 +28,19 @@ export default function CharacterDetails() {
           <Bold>Hair Color:</Bold>
           <span>blue</span>
         </Content>
+        <Content>
+          <Bold>Hair Color:</Bold>
+          <span>blue</span>
+        </Content>
+        <Content>
+          <Bold>Films:</Bold>
+          <div>
+            <p>Film 1</p>
+            <p>Film 2</p>
+            <p>Film 2</p>
+            <p>Film 2</p>
+          </div>
+        </Content>
       </ContentContainer>
     </CharacterContainer>
   )

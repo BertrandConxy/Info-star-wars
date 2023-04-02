@@ -15,7 +15,6 @@ export const ContentContainer = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 10px;
 `
 
