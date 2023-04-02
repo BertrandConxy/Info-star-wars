@@ -1,5 +1,10 @@
 import { iCharacter } from '../../typeDefs/character'
-import { CharacterCardStyled } from './CharacterCard.styles'
+import {
+  CharacterCardStyled,
+  Title,
+  Content,
+  Span,
+} from './CharacterCard.styles'
 export default function CharacterCard({
   key,
   name,
@@ -10,11 +15,19 @@ export default function CharacterCard({
 }: iCharacter) {
   return (
     <CharacterCardStyled>
-      <h2>{name}</h2>
-      <p>Age: {birthYear}</p>
-      <p>Email: {eyeColor}</p>
-      <p>Email: {gender}</p>
-      <p>Email: {hairColor}</p>
+      <Title>{name}</Title>
+      <Content>
+        Age: <Span>{birthYear}</Span>
+      </Content>
+      <Content>
+        Eye Color: <Span>{eyeColor}</Span>
+      </Content>
+      <Content>
+        Hair Color: <Span>{hairColor}</Span>
+      </Content>
+      <Content>
+        Gender: <Span>{gender}</Span>
+      </Content>
     </CharacterCardStyled>
   )
 }
