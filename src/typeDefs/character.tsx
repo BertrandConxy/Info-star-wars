@@ -5,7 +5,7 @@ export interface iCharacter {
   gender: string
   hair_color: string
   eye_color: string
-  height: number
-  mass: number
+  height: string
+  mass: string
   films: string[]
 }

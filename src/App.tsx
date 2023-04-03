@@ -1,33 +1,36 @@
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Layout from './pages/layout'
 import Home from './pages/home'
 import Characters from './pages/characters'
 import Character from './pages/character'
-import { charactersArray } from './data/characters'
 import { iCharacter } from './typeDefs/character'
+import { useCharacters } from './services/Characters/Characters.context'
 
 export default function App() {
-  const [filtered, setFiltered] = useState<iCharacter[]>(charactersArray)
+  const { characters, loading, error } = useCharacters()
+  console.log(characters)
+  const [filtered, setFiltered] = useState<iCharacter[]>(characters)
   const navigate = useNavigate()
   const location = useLocation()
 
   const handleSearched = (search: string) => {
     if (search === null || search === undefined || search.length === 0) {
-      setFiltered(charactersArray)
+      setFiltered(characters)
     } else {
-      const filteredArray = charactersArray.filter(({ name }) =>
+      const filteredArray = characters?.filter(({ name }) =>
         name.toLowerCase().includes(search.toLowerCase()),
       )
       setFiltered(filteredArray)
     }
-    // Check if the current route is not /characters
     if (location.pathname !== '/characters') {
-      // Navigate to /characters
       navigate('/characters')
       return
     }
   }
+  useEffect(() => {
+    console.log(filtered)
+  }, [filtered])
 
   return (
     <Layout handleSearched={handleSearched}>
@@ -35,7 +38,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/characters"
-          element={<Characters characters={filtered} />}
+          element={
+            <Characters filtered={filtered} loading={loading} error={error} />
+          }
         />
         <Route path="/characters/:characterID" element={<Character />} />
       </Routes>

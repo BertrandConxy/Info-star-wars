@@ -11,3 +11,8 @@ export const CharactersContainer = styled.div`
 export const PaginationContainer = styled.div`
   align-self: center;
 `
+
+export const TextContainer = styled.h2`
+  margin: 20px 0;
+  text-align: center;
+`

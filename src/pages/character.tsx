@@ -2,19 +2,20 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CharacterDetails from '../components/CharacterDetails'
 import { iCharacter } from '../typeDefs/character'
+import { TextContainer } from '../components/Common/Characters'
+import { fetchCharacter } from '../services/Character/Character.service'
 
 export default function Character() {
   const { characterID } = useParams()
-  console.log(characterID)
-  const [character, setCharacter] = useState<iCharacter | null>(null)
+  const [character, setCharacter] = useState<iCharacter>()
   const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string>('')
+
   useEffect(() => {
     let arr: Promise<Response>[] = []
     setLoading(true)
-    fetch(`https://swapi.dev/api/people/${characterID}/`)
-      .then((response) => response.json())
+    fetchCharacter(characterID!)
       .then((response) => {
-        console.log(response)
         const Person: iCharacter = {
           id: 1,
           name: response.name,
@@ -34,21 +35,34 @@ export default function Character() {
               .then((response) => response.title),
           )
         })
-        Promise.all(arr).then((response) => {
-          const stringify = response.toString().split(',')
-          setCharacter({
-            ...Person,
-            films: stringify,
+        Promise.all(arr)
+          .then((response) => {
+            const stringify = response.toString().split(',')
+            setCharacter({
+              ...Person,
+              films: stringify,
+            })
+            setLoading(false)
           })
-          setLoading(false)
-        })
+          .catch((err) => {
+            setLoading(false)
+            setError(err)
+          })
+      })
+      .catch((err) => {
+        setLoading(false)
+        setError(err)
       })
   }, [])
 
-  useEffect(() => {}, [])
-  return loading === true ? (
-    <h3>loading</h3>
-  ) : (
+  if (loading) {
+    return <TextContainer>Loading...</TextContainer>
+  }
+  if (error) {
+    return <TextContainer>{error}</TextContainer>
+  }
+
+  return (
     <CharacterDetails
       id={character!.id}
       name={character!.name}

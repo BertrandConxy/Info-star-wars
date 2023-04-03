@@ -8,8 +8,6 @@ interface Props {
   handleSearched: (search: string) => void
 }
 
-type Search = (search: string) => void
-
 const View = styled.div`
   min-height: 100vh;
   position: relative;

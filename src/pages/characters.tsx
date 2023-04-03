@@ -6,11 +6,22 @@ import ButtonPag from '../components/Common/ButtonPag'
 import {
   CharactersContainer,
   PaginationContainer,
+  TextContainer,
 } from '../components/Common/Characters'
+import { useCharacters } from '../services/Characters/Characters.context'
 
-function Characters({ characters }: { characters: iCharacter[] }) {
+function Characters({
+  filtered,
+  loading,
+  error,
+}: {
+  filtered: iCharacter[]
+  loading: boolean
+  error: string
+}) {
+  const { characters } = useCharacters()
   const [currentPage, setCurrentPage] = useState(1)
-  const charactersPerPage = 5
+  const charactersPerPage = 10
   const totalPages = Math.ceil(characters.length / charactersPerPage)
 
   const handleClick = (page: number) => {
@@ -21,23 +32,42 @@ function Characters({ characters }: { characters: iCharacter[] }) {
     const start = (currentPage - 1) * charactersPerPage
     const end = start + charactersPerPage
     const currentCharacters = characters.slice(start, end)
-    console.log(currentCharacters)
-
+    const currentCharactersFiltered = filtered.slice(start, end)
+    if (loading) {
+      return <TextContainer>Loading...</TextContainer>
+    }
+    if (error) {
+      return <TextContainer>{error}</TextContainer>
+    }
     return (
       <GridLayout>
-        {currentCharacters.map(
-          ({ id, birth_year, eye_color, gender, hair_color, name }) => (
-            <CharacterCard
-              key={id}
-              id={id}
-              name={name}
-              hairColor={hair_color}
-              eyeColor={eye_color}
-              birthYear={birth_year}
-              gender={gender}
-            />
-          ),
-        )}
+        {filtered.length !== 0
+          ? currentCharactersFiltered.map(
+              ({ id, birth_year, eye_color, gender, hair_color, name }) => (
+                <CharacterCard
+                  key={id}
+                  id={id}
+                  name={name}
+                  hairColor={hair_color}
+                  eyeColor={eye_color}
+                  birthYear={birth_year}
+                  gender={gender}
+                />
+              ),
+            )
+          : currentCharacters.map(
+              ({ id, birth_year, eye_color, gender, hair_color, name }) => (
+                <CharacterCard
+                  key={id}
+                  id={id}
+                  name={name}
+                  hairColor={hair_color}
+                  eyeColor={eye_color}
+                  birthYear={birth_year}
+                  gender={gender}
+                />
+              ),
+            )}
       </GridLayout>
     )
   }

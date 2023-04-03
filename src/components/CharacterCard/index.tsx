@@ -22,8 +22,6 @@ export default function CharacterCard({
   gender,
   eyeColor,
 }: iProps) {
-  console.log(id)
-  console.log(typeof id)
   return (
     <LinkContainer to={`/characters/${id}`}>
       <CharacterCardStyled>
