@@ -18,7 +18,6 @@ export default function CharacterDetails({
   character: iCharacter
 }) {
   const {
-    id,
     name,
     birth_year,
     gender,

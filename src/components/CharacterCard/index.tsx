@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   CharacterCardStyled,
   Title,
@@ -5,23 +7,10 @@ import {
   Span,
   LinkContainer,
 } from './CharacterCard.styles'
+import { iProps } from '../../typeDefs/characterCardProps'
 
-interface iProps {
-  id: number
-  name: string
-  birthYear: string
-  gender: string
-  eyeColor: string
-  hairColor: string
-}
-export default function CharacterCard({
-  id,
-  name,
-  birthYear,
-  hairColor,
-  gender,
-  eyeColor,
-}: iProps) {
+export default function CharacterCard(props: iProps) {
+  const { id, name, birthYear, hairColor, gender, eyeColor } = props
   return (
     <LinkContainer to={`/characters/${id}`}>
       <CharacterCardStyled>
