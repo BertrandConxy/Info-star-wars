@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Layout from './pages/layout'
 import Home from './pages/home'
@@ -9,6 +9,8 @@ import { iCharacter } from './typeDefs/character'
 
 export default function App() {
   const [filtered, setFiltered] = useState<iCharacter[]>(charactersArray)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const handleSearched = (search: string) => {
     if (search === null || search === undefined || search.length === 0) {
@@ -18,6 +20,12 @@ export default function App() {
         name.toLowerCase().includes(search.toLowerCase()),
       )
       setFiltered(filteredArray)
+    }
+    // Check if the current route is not /characters
+    if (location.pathname !== '/characters') {
+      // Navigate to /characters
+      navigate('/characters')
+      return
     }
   }
 
