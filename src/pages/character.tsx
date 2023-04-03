@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import CharacterDetails from '../components/CharacterDetails'
 import { iCharacter } from '../typeDefs/character'
-import { TextContainer } from '../components/Common/Characters'
 import { fetchCharacter } from '../services/Character/Character.service'
+import CharacterDetails from '../components/CharacterDetails'
+import { TextContainer } from '../components/Common/Characters'
 
 export default function Character() {
   const { characterID } = useParams()
@@ -27,7 +27,6 @@ export default function Character() {
           mass: response.mass,
           films: [],
         }
-        console.log(Person)
         setCharacter(response)
         response.films.map((film: string) => {
           arr.push(
@@ -62,18 +61,5 @@ export default function Character() {
   if (error) {
     return <TextContainer>{error}</TextContainer>
   }
-
-  return (
-    <CharacterDetails
-      id={character!.id}
-      name={character!.name}
-      birth_year={character!.birth_year}
-      gender={character!.gender}
-      hair_color={character!.hair_color}
-      eye_color={character!.eye_color}
-      height={character!.height}
-      mass={character!.mass}
-      films={character!.films}
-    />
-  )
+  return <CharacterDetails character={character!} />
 }

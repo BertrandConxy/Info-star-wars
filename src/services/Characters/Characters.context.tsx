@@ -1,16 +1,7 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
-import { fetchCharacters } from './Characters.service'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { iCharacter } from '../../typeDefs/character'
-
-interface iProps {
-  children: ReactNode
-}
+import { iChildrenNode } from '../../typeDefs/childrenNode'
+import { fetchCharacters } from './Characters.service'
 
 interface iCharactersContext {
   characters: iCharacter[]
@@ -24,7 +15,7 @@ export function useCharacters() {
   return useContext(CharactersContext)
 }
 
-export default function CharactersProvider({ children }: iProps) {
+export default function CharactersProvider({ children }: iChildrenNode) {
   const [characters, setCharacters] = useState<iCharacter[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')

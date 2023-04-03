@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 
 export const CharacterCardStyled = styled.div`
   border: 1px solid white;
-  margin: 10px;
-  padding: 10px;
-  padding-left: 20px;
+  margin: ${theme.space[2]};
+  padding: ${theme.space[2]};
+  padding-left: ${theme.space[3]};
   @media screen and (max-width: 768px) {
-    padding-left: 10px;
+    padding-left: ${theme.space[2]};
   }
 `
 export const Title = styled.h2`
-  margin-bottom: 10px;
+  margin-bottom: ${theme.space[2]};
 `
 
 export const Content = styled.p`

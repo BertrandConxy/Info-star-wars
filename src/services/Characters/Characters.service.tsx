@@ -8,9 +8,9 @@ export const fetchCharacters = async (): Promise<iCharacter[]> => {
   ]
 
   const requests = urls.map((url) => fetch(url))
-  const responses = await Promise.all(requests) // Wait for all requests to complete
-  const data = await Promise.all(responses.map((r) => r.json())) // Convert each response to JSON
-  const results = data.reduce((acc, curr) => acc.concat(curr.results), []) // Concatenate the results
+  const responses = await Promise.all(requests)
+  const data = await Promise.all(responses.map((r) => r.json()))
+  const results = data.reduce((acc, curr) => acc.concat(curr.results), [])
   const modifiedResults = results.map((result: iCharacter) => ({
     ...result,
     id: parseInt(result.url.split('/').slice(-2, -1)[0]),

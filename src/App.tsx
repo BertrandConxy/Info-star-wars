@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { iCharacter } from './typeDefs/character'
 import Layout from './pages/layout'
 import Home from './pages/home'
 import Characters from './pages/characters'
 import Character from './pages/character'
-import { iCharacter } from './typeDefs/character'
 import { useCharacters } from './services/Characters/Characters.context'
 
 export default function App() {

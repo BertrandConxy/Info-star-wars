@@ -2,24 +2,22 @@ import { useState } from 'react'
 import { iCharacter } from '../typeDefs/character'
 import CharacterCard from '../components/CharacterCard'
 import GridLayout from '../components/Common/GridLayout'
-import ButtonPag from '../components/Common/ButtonPag'
 import {
   CharactersContainer,
   PaginationContainer,
   TextContainer,
 } from '../components/Common/Characters'
+import Pagination from '../components/Pagination'
 import { useCharacters } from '../services/Characters/Characters.context'
-import { charactersArray } from '../data/characters'
+import { charactersArray } from '../data/MockCharacters'
 
-function Characters({
-  filtered,
-  loading,
-  error,
-}: {
+interface iCharacters {
   filtered: iCharacter[]
   loading: boolean
   error: string
-}) {
+}
+
+function Characters({ filtered, loading, error }: iCharacters) {
   // const { characters } = useCharacters()
   const characters = charactersArray
   const [currentPage, setCurrentPage] = useState(1)
@@ -74,49 +72,16 @@ function Characters({
     )
   }
 
-  const renderPagination = () => {
-    const pages = []
-    const prevPage = currentPage - 1
-    const nextPage = currentPage + 1
-    if (prevPage > 0) {
-      pages.push(
-        <ButtonPag
-          key="prev"
-          handleClick={() => handleClick(prevPage)}
-          text="Prev"
-        />,
-      )
-    }
-
-    for (let i = 1; i <= totalPages; i++) {
-      const active = i === currentPage
-      pages.push(
-        <ButtonPag
-          key={i}
-          handleClick={() => handleClick(i)}
-          text={i}
-          active={active}
-        />,
-      )
-    }
-
-    if (nextPage <= totalPages) {
-      pages.push(
-        <ButtonPag
-          key="next"
-          handleClick={() => handleClick(nextPage)}
-          text="Next"
-        />,
-      )
-    }
-
-    return pages
-  }
-
   return (
     <CharactersContainer>
       {renderCharacters()}
-      <PaginationContainer>{renderPagination()}</PaginationContainer>
+      <PaginationContainer>
+        {Pagination({
+          currentPage: currentPage,
+          handleClick: handleClick,
+          totalPages: totalPages,
+        })}
+      </PaginationContainer>
     </CharactersContainer>
   )
 }

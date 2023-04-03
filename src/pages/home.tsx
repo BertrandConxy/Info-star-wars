@@ -6,7 +6,6 @@ import Robot from '../assets/images/carousel-robot.jpg'
 import CarouselCard from '../components/CarouselCard'
 import 'swiper/css'
 import 'swiper/css/autoplay'
-import { iCharacter } from '../typeDefs/character'
 
 interface iImageData {
   id: number

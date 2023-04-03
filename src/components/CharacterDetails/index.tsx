@@ -13,15 +13,30 @@ import { iCharacter } from '../../typeDefs/character'
 import { useNavigate } from 'react-router-dom'
 
 export default function CharacterDetails({
-  name,
-  eye_color,
-  hair_color,
-  gender,
-  birth_year,
-  films,
-  height,
-  mass,
-}: iCharacter) {
+  character,
+}: {
+  character: iCharacter
+}) {
+  const {
+    id,
+    name,
+    birth_year,
+    gender,
+    hair_color,
+    eye_color,
+    height,
+    mass,
+    films,
+  } = character
+
+  const listObject = {
+    'Birth year': birth_year,
+    gender: gender,
+    'Eye color': eye_color,
+    'Hair color': hair_color,
+    Height: height,
+    Mass: mass,
+  }
   const navigate = useNavigate()
   const handleBack = () => {
     navigate(-1)
@@ -33,30 +48,12 @@ export default function CharacterDetails({
         <Name>{name}</Name>
       </Header>
       <ContentContainer>
-        <Content>
-          <Bold>Birth Year:</Bold>
-          <span>{birth_year}</span>
-        </Content>
-        <Content>
-          <Bold>Gender:</Bold>
-          <span>{gender}</span>
-        </Content>
-        <Content>
-          <Bold>Eye Color:</Bold>
-          <span>{eye_color}</span>
-        </Content>
-        <Content>
-          <Bold>Hair Color:</Bold>
-          <span>{hair_color}</span>
-        </Content>
-        <Content>
-          <Bold>Height:</Bold>
-          <span>{height}</span>
-        </Content>
-        <Content>
-          <Bold>Mass:</Bold>
-          <span>{mass}</span>
-        </Content>
+        {Object.entries(listObject).map(([key, value]) => (
+          <Content key={key}>
+            <Bold>{key}</Bold>
+            <span>{value}</span>
+          </Content>
+        ))}
         <Content>
           <Bold>Films Featured:</Bold>
           <div>
