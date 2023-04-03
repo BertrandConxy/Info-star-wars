@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { iCharacter } from '../typeDefs/character'
 import { charactersArray } from '../data/characters'
 import CharacterCard from '../components/CharacterCard'
@@ -9,11 +9,7 @@ import {
   PaginationContainer,
 } from '../components/Common/Characters'
 
-function Characters({
-  characters = charactersArray,
-}: {
-  characters: iCharacter[]
-}) {
+function Characters({ characters }: { characters: iCharacter[] }) {
   const [currentPage, setCurrentPage] = useState(1)
   const [filtered, setFiltered] = useState<iCharacter[]>([])
   const charactersPerPage = 5
@@ -31,8 +27,7 @@ function Characters({
     console.log(filteredArray)
   }
 
-  // stocksData.filter(({ companyName }) => companyName
-  //           .toLowerCase().includes(payload.toLowerCase()))
+  useEffect(() => {}, [characters])
 
   const renderCharacters = () => {
     const start = (currentPage - 1) * charactersPerPage

@@ -11,8 +11,6 @@ import Search from '../Search'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
 
-// type Searched = (search:string) => void;
-
 export default function NavBar({
   Searched,
 }: {

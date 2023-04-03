@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 interface Props {
   children: ReactNode
+  handleSearched: (search: string) => void
 }
 
 type Search = (search: string) => void
@@ -18,10 +19,7 @@ const View = styled.div`
   }
 `
 
-export default function Layout({ children }: Props) {
-  const handleSearched: Search = (search: string) => {
-    console.log(search)
-  }
+export default function Layout({ children, handleSearched }: Props) {
   return (
     <View>
       <NavBar Searched={handleSearched} />
