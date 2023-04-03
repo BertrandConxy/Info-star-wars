@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../infrastructure/theme'
+import { Link } from 'react-router-dom'
 
 export const CharacterCardStyled = styled.div`
   border: 1px solid white;
@@ -20,4 +21,8 @@ export const Content = styled.p`
 
 export const Span = styled.span`
   font-weight: normal;
+`
+
+export const LinkContainer = styled(Link)`
+  color: ${theme.colors.brand.primary};
 `

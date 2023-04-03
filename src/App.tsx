@@ -37,7 +37,7 @@ export default function App() {
           path="/characters"
           element={<Characters characters={filtered} />}
         />
-        <Route path="/characters/:characterName" element={<Character />} />
+        <Route path="/characters/:characterID" element={<Character />} />
       </Routes>
     </Layout>
   )

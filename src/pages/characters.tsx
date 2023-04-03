@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { iCharacter } from '../typeDefs/character'
-import { charactersArray } from '../data/characters'
 import CharacterCard from '../components/CharacterCard'
 import GridLayout from '../components/Common/GridLayout'
 import ButtonPag from '../components/Common/ButtonPag'
@@ -11,7 +10,6 @@ import {
 
 function Characters({ characters }: { characters: iCharacter[] }) {
   const [currentPage, setCurrentPage] = useState(1)
-  const [filtered, setFiltered] = useState<iCharacter[]>([])
   const charactersPerPage = 5
   const totalPages = Math.ceil(characters.length / charactersPerPage)
 
@@ -19,31 +17,23 @@ function Characters({ characters }: { characters: iCharacter[] }) {
     setCurrentPage(page)
   }
 
-  const handleSearch = (search: string) => {
-    const filteredArray = characters.filter(({ name }) =>
-      name.toLowerCase().includes(search.toLocaleLowerCase()),
-    )
-    setFiltered(filteredArray)
-    console.log(filteredArray)
-  }
-
-  useEffect(() => {}, [characters])
-
   const renderCharacters = () => {
     const start = (currentPage - 1) * charactersPerPage
     const end = start + charactersPerPage
     const currentCharacters = characters.slice(start, end)
+    console.log(currentCharacters)
 
     return (
       <GridLayout>
         {currentCharacters.map(
-          ({ key, birthYear, eyeColor, gender, hairColor, name }) => (
+          ({ id, birth_year, eye_color, gender, hair_color, name }) => (
             <CharacterCard
-              key={key}
+              key={id}
+              id={id}
               name={name}
-              hairColor={hairColor}
-              eyeColor={eyeColor}
-              birthYear={birthYear}
+              hairColor={hair_color}
+              eyeColor={eye_color}
+              birthYear={birth_year}
               gender={gender}
             />
           ),
