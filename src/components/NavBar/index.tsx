@@ -11,7 +11,13 @@ import Search from '../Search'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
 
-export default function NavBar() {
+// type Searched = (search:string) => void;
+
+export default function NavBar({
+  Searched,
+}: {
+  Searched: (search: string) => void
+}) {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
   const closeNav = () => {
@@ -30,7 +36,7 @@ export default function NavBar() {
       window.removeEventListener('resize', changeWidth)
     }
   }, [])
-  
+
   return (
     <NavContainer>
       <BrandLink to="/">Star Wars</BrandLink>
@@ -44,7 +50,7 @@ export default function NavBar() {
               </LinkItem>
             ))}
           </NavLinks>
-          <Search />
+          <Search handleSearch={Searched} />
         </NavBox>
       )}
       <HamburgerButton onClick={openNav} />

@@ -15,12 +15,24 @@ function Characters({
   characters: iCharacter[]
 }) {
   const [currentPage, setCurrentPage] = useState(1)
+  const [filtered, setFiltered] = useState<iCharacter[]>([])
   const charactersPerPage = 5
   const totalPages = Math.ceil(characters.length / charactersPerPage)
 
   const handleClick = (page: number) => {
     setCurrentPage(page)
   }
+
+  const handleSearch = (search: string) => {
+    const filteredArray = characters.filter(({ name }) =>
+      name.toLowerCase().includes(search.toLocaleLowerCase()),
+    )
+    setFiltered(filteredArray)
+    console.log(filteredArray)
+  }
+
+  // stocksData.filter(({ companyName }) => companyName
+  //           .toLowerCase().includes(payload.toLowerCase()))
 
   const renderCharacters = () => {
     const start = (currentPage - 1) * charactersPerPage
