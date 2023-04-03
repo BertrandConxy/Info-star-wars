@@ -1,16 +1,27 @@
-import { ReactNode } from 'react'
 import styled from 'styled-components'
+import { theme } from '../../../infrastructure/theme'
 
 interface Props {
-  children: ReactNode
+  text: string | number
   handleClick: () => void
+  active?: boolean
 }
 
 const Button = styled.button`
   padding: 10px;
   margin-right: 4px;
-
+  font-family: ${theme.fonts.heading};
+  &.active {
+    border-color: transparent;
+    border-radius: 2px;
+    background-color: ${theme.colors.ui.danger};
+    box-shadow: 0.09rem -0.09rem 0.2rem red;
+  }
 `
-export default function ButtonPag({ children, handleClick }: Props) {
-  return <Button onClick={handleClick}>{children}</Button>
+export default function ButtonPag({ text, handleClick, active }: Props) {
+  return (
+    <Button onClick={handleClick} className={`${active ? 'active' : null}`}>
+      {text}
+    </Button>
+  )
 }

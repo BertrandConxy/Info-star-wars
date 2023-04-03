@@ -9,6 +9,7 @@ import {
   TextContainer,
 } from '../components/Common/Characters'
 import { useCharacters } from '../services/Characters/Characters.context'
+import { charactersArray } from '../data/characters'
 
 function Characters({
   filtered,
@@ -19,7 +20,8 @@ function Characters({
   loading: boolean
   error: string
 }) {
-  const { characters } = useCharacters()
+  // const { characters } = useCharacters()
+  const characters = charactersArray
   const [currentPage, setCurrentPage] = useState(1)
   const charactersPerPage = 10
   const totalPages = Math.ceil(characters.length / charactersPerPage)
@@ -78,25 +80,33 @@ function Characters({
     const nextPage = currentPage + 1
     if (prevPage > 0) {
       pages.push(
-        <ButtonPag key="prev" handleClick={() => handleClick(prevPage)}>
-          Prev
-        </ButtonPag>,
+        <ButtonPag
+          key="prev"
+          handleClick={() => handleClick(prevPage)}
+          text="Prev"
+        />,
       )
     }
 
     for (let i = 1; i <= totalPages; i++) {
+      const active = i === currentPage
       pages.push(
-        <ButtonPag key={i} handleClick={() => handleClick(i)}>
-          {i}
-        </ButtonPag>,
+        <ButtonPag
+          key={i}
+          handleClick={() => handleClick(i)}
+          text={i}
+          active={active}
+        />,
       )
     }
 
     if (nextPage <= totalPages) {
       pages.push(
-        <ButtonPag key="next" handleClick={() => handleClick(nextPage)}>
-          Next
-        </ButtonPag>,
+        <ButtonPag
+          key="next"
+          handleClick={() => handleClick(nextPage)}
+          text="Next"
+        />,
       )
     }
 

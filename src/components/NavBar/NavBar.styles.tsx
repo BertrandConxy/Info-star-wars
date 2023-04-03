@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../infrastructure/theme'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import { IoClose } from 'react-icons/io5'
 
@@ -49,18 +49,14 @@ export const BrandLink = styled(Link)`
     font-size: ${theme.fontSizes.h3};
   }
 `
-export const LinkItem = styled(Link)`
+export const LinkItem = styled(NavLink)`
   font-family: ${theme.fonts.heading};
   color: ${theme.colors.ui.primary};
   margin-right: ${theme.space[2]};
   transition: 0.5s;
-  &:hover {
+  &.active {
     color: ${theme.colors.ui.danger};
-    text-shadow: 0.09rem -0.09rem 0.2rem red;
-  }
-  &:active {
-    color: ${theme.colors.ui.danger};
-    text-shadow: 0.09rem -0.09rem 0.2rem red;
+    text-shadow: 0.09rem -0.09rem 0.1rem red;
   }
 `
 
