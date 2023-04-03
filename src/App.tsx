@@ -9,7 +9,6 @@ import { useCharacters } from './services/Characters/Characters.context'
 
 export default function App() {
   const { characters, loading, error } = useCharacters()
-  console.log(characters)
   const [filtered, setFiltered] = useState<iCharacter[]>(characters)
   const navigate = useNavigate()
   const location = useLocation()
@@ -28,9 +27,6 @@ export default function App() {
       return
     }
   }
-  useEffect(() => {
-    console.log(filtered)
-  }, [filtered])
 
   return (
     <Layout handleSearched={handleSearched}>

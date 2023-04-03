@@ -17,7 +17,7 @@ export default function Character() {
     fetchCharacter(characterID!)
       .then((response) => {
         const Person: iCharacter = {
-          id: 1,
+          id: parseInt(response.url.split('/').slice(-2, -1)[0]),
           name: response.name,
           birth_year: response.birth_year,
           eye_color: response.eye_color,
@@ -27,6 +27,7 @@ export default function Character() {
           mass: response.mass,
           films: [],
         }
+        console.log(Person)
         setCharacter(response)
         response.films.map((film: string) => {
           arr.push(
