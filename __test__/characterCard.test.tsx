@@ -1,51 +1,60 @@
 import React from 'react'
-
 import { render, screen } from '@testing-library/react'
 import CharacterCard from '../src/components/CharacterCard/index'
+import { MemoryRouter } from 'react-router-dom'
 
 const mockProps = {
   id: 1,
   name: 'Luke Skywalker',
   birthYear: '19 BBY',
-  hairColor: 'blond',
-  gender: 'male',
-  eyeColor: 'blue',
+  hairColor: 'Blond',
+  gender: 'Male',
+  eyeColor: 'Blue',
 }
 
-describe('CharacterCard component', () => {
-  it('should render correctly', () => {
-    const { container } = render(
-      <CharacterCard
-        birthYear={mockProps.birthYear}
-        eyeColor={mockProps.eyeColor}
-        gender={mockProps.gender}
-        hairColor={mockProps.hairColor}
-        name={mockProps.name}
-        id={mockProps.id}
-      />,
+describe('CharacterCard', () => {
+  beforeEach(() => {
+    render(
+      <MemoryRouter>
+        <CharacterCard {...mockProps} />
+      </MemoryRouter>,
     )
-    expect(container).toMatchSnapshot()
   })
 
-  it('should display correct data', () => {
-    render(
-      <CharacterCard
-        birthYear={mockProps.birthYear}
-        eyeColor={mockProps.eyeColor}
-        gender={mockProps.gender}
-        hairColor={mockProps.hairColor}
-        name={mockProps.name}
-        id={mockProps.id}
-      />,
+  it('matches snapshot', () => {
+    const { asFragment } = render(
+      <MemoryRouter>
+        <CharacterCard {...mockProps} />
+      </MemoryRouter>,
     )
-    expect(screen.getByText(/luke skywalker/i)).toBeInTheDocument
-    expect(screen.getByText(/birth year:/i)).toBeInTheDocument()
-    expect(screen.getByText(/19 bby/i)).toBeInTheDocument()
-    expect(screen.getByText(/eye color:/i)).toBeInTheDocument()
-    expect(screen.getByText(/blue/i)).toBeInTheDocument()
-    expect(screen.getByText(/hair color:/i)).toBeInTheDocument()
-    expect(screen.getByText(/blond/i)).toBeInTheDocument()
-    expect(screen.getByText(/gender:/i)).toBeInTheDocument()
-    expect(screen.getByText(/male/i)).toBeInTheDocument()
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('renders the character name', () => {
+    expect(screen.getByText('Luke Skywalker')).toBeInTheDocument()
+  })
+
+  it('renders the birth year', () => {
+    expect(screen.getByText('Birth Year:')).toBeInTheDocument()
+    expect(screen.getByText('19 BBY')).toBeInTheDocument()
+  })
+
+  it('renders the eye color', () => {
+    expect(screen.getByText('Eye Color:')).toBeInTheDocument()
+    expect(screen.getByText('Blue')).toBeInTheDocument()
+  })
+
+  it('renders the hair color', () => {
+    expect(screen.getByText('Hair Color:')).toBeInTheDocument()
+    expect(screen.getByText('Blond')).toBeInTheDocument()
+  })
+
+  it('renders the gender', () => {
+    expect(screen.getByText('Gender:')).toBeInTheDocument()
+    expect(screen.getByText('Male')).toBeInTheDocument()
+  })
+
+  it('renders a link to the character details page', () => {
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/characters/1')
   })
 })

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   CharacterContainer,
   Name,
@@ -49,15 +51,15 @@ export default function CharacterDetails({
       <ContentContainer>
         {Object.entries(listObject).map(([key, value]) => (
           <Content key={key}>
-            <Bold>{key}</Bold>
+            <Bold>{key}:</Bold>
             <span>{value}</span>
           </Content>
         ))}
         <Content>
           <Bold>Films Featured:</Bold>
           <div>
-            {films.map((film) => (
-              <p>{film}</p>
+            {films.map((film, i) => (
+              <p key={i}>{film}</p>
             ))}
           </div>
         </Content>

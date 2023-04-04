@@ -1,4 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
+
 export default {
   // ...
   testEnvironment: 'jest-environment-jsdom',
@@ -8,4 +9,6 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
 }
