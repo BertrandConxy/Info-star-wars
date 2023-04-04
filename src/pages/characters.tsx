@@ -21,6 +21,7 @@ function Characters({ filtered, loading, error }: iCharacters) {
   const [currentPage, setCurrentPage] = useState(1)
   const charactersPerPage = 10
   const totalPages = Math.ceil(characters.length / charactersPerPage)
+  const totalPagesFiltered = Math.ceil(filtered.length / charactersPerPage)
 
   const handleClick = (page: number) => {
     setCurrentPage(page)
@@ -77,7 +78,7 @@ function Characters({ filtered, loading, error }: iCharacters) {
         {Pagination({
           currentPage: currentPage,
           handleClick: handleClick,
-          totalPages: totalPages,
+          totalPages: filtered.length != 0 ? totalPagesFiltered : totalPages,
         })}
       </PaginationContainer>
     </CharactersContainer>
