@@ -61,10 +61,6 @@ export default function NavBar({
     }
   }, [])
 
-  useEffect(() => {
-    console.log(links)
-  }, [])
-
   return (
     <NavContainer>
       <BrandLink to="/">Star Wars</BrandLink>
