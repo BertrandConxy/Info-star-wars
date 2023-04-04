@@ -9,7 +9,6 @@ import {
 } from '../components/Common/Characters'
 import Pagination from '../components/Pagination'
 import { useCharacters } from '../services/Characters/Characters.context'
-// import { charactersArray } from '../data/MockCharacters'
 
 interface iCharacters {
   filtered: iCharacter[]
