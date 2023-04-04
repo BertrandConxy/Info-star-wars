@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+@font-face {
+  font-family: "Polaris";
+  src:
+    url("./fonts/Polaris.woff2") format("woff2"),
+    url("./fonts/Polaris.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Voyager-Regular";
+  src: url("./fonts/Voyager-heavy.woff") format("woff");
+}
+
+:root {
+  font-family: 'Roboto Mono', monospace;
+  color-scheme: light dark;
+  color: #FFFFFFDE;
+  background-color: #242424;
+  letter-spacing: 1.5px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* * Defines what 1rem is */
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}

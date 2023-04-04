@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterCard matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="sc-eDDNvR eKNcDH"
+    href="/characters/1"
+  >
+    <div
+      class="sc-beqWaB jDRaRx"
+    >
+      <h2
+        class="sc-gueYoa bzjvzv"
+      >
+        Luke Skywalker
+      </h2>
+      <p
+        class="sc-dmqHEX cbNNmG"
+      >
+        Birth Year: 
+        <span
+          class="sc-hLseeU izxruz"
+        >
+          19 BBY
+        </span>
+      </p>
+      <p
+        class="sc-dmqHEX cbNNmG"
+      >
+        Eye Color: 
+        <span
+          class="sc-hLseeU izxruz"
+        >
+          Blue
+        </span>
+      </p>
+      <p
+        class="sc-dmqHEX cbNNmG"
+      >
+        Hair Color: 
+        <span
+          class="sc-hLseeU izxruz"
+        >
+          Blond
+        </span>
+      </p>
+      <p
+        class="sc-dmqHEX cbNNmG"
+      >
+        Gender: 
+        <span
+          class="sc-hLseeU izxruz"
+        >
+          Male
+        </span>
+      </p>
+    </div>
+  </a>
+</DocumentFragment>
+`;
