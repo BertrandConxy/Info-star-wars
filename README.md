@@ -126,8 +126,6 @@ To run all tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **view the planets in star wars series**
 - [ ] **View the space ships in the star wars series**
 - [ ] **View the star ships**
