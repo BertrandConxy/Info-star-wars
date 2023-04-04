@@ -10,6 +10,7 @@ import {
 import Search from '../Search'
 import { useState, useEffect } from 'react'
 import { Links } from '../../data/navigation'
+import { iLink } from '../../typeDefs/navLink'
 
 export default function NavBar({
   Searched,
@@ -18,6 +19,7 @@ export default function NavBar({
 }) {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth)
+  const [links, setLinks] = useState<iLink[]>([...Links])
   const closeNav = () => {
     setToggleMenu(false)
   }
@@ -35,6 +37,34 @@ export default function NavBar({
     }
   }, [])
 
+  useEffect(() => {
+    let visitedLinks: string[] = []
+    const storedVisitedLinks = localStorage.getItem('visitedLinks')
+    if (storedVisitedLinks) {
+      const stringify = JSON.parse(storedVisitedLinks)
+      visitedLinks = [...stringify]
+      visitedLinks = visitedLinks.slice(0, 3)
+      const modifiedLinks: iLink[] = visitedLinks.map((linky) => {
+        return {
+          id: linky.split('/').pop()!,
+          path: linky,
+          text: `Char ${linky.split('/').pop()}`,
+        }
+      })
+      setLinks((prevLinks) => {
+        const existingIds = prevLinks.map((link) => link.id)
+        const newLinks = modifiedLinks.filter(
+          (link) => !existingIds.includes(link.id),
+        )
+        return [...prevLinks.concat(newLinks)]
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log(links)
+  }, [])
+
   return (
     <NavContainer>
       <BrandLink to="/">Star Wars</BrandLink>
@@ -42,7 +72,7 @@ export default function NavBar({
         <NavBox>
           <CloseButton onClick={closeNav} />
           <NavLinks>
-            {Links.map(({ id, path, text }) => (
+            {links.map(({ id, path, text }) => (
               <LinkItem to={path} key={id} onClick={closeNav}>
                 {text}
               </LinkItem>

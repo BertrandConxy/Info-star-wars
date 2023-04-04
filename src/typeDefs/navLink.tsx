@@ -1,5 +1,5 @@
 export interface iLink {
-    id: number
-    path: string
-    text: string
-  }
+  id: string
+  path: string
+  text: string
+}
