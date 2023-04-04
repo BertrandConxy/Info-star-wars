@@ -9,7 +9,7 @@ import {
 } from '../components/Common/Characters'
 import Pagination from '../components/Pagination'
 import { useCharacters } from '../services/Characters/Characters.context'
-import { charactersArray } from '../data/MockCharacters'
+// import { charactersArray } from '../data/MockCharacters'
 
 interface iCharacters {
   filtered: iCharacter[]
@@ -18,8 +18,7 @@ interface iCharacters {
 }
 
 function Characters({ filtered, loading, error }: iCharacters) {
-  // const { characters } = useCharacters()
-  const characters = charactersArray
+  const { characters } = useCharacters()
   const [currentPage, setCurrentPage] = useState(1)
   const charactersPerPage = 10
   const totalPages = Math.ceil(characters.length / charactersPerPage)

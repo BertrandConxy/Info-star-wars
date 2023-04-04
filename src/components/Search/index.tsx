@@ -1,3 +1,4 @@
+import React from 'react'
 import { SearchInput, SearchButton, SearchIcon, Form } from './Search.styles'
 import { useState } from 'react'
 
@@ -17,14 +18,14 @@ export default function Search({
     handleSearch(value)
   }
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form role="form" onSubmit={handleSubmit}>
       <SearchInput
         type="search"
         placeholder="Search character..."
         value={searchInput}
         onChange={handleChange}
       />
-      <SearchButton type="submit">
+      <SearchButton type="submit" role="submit">
         <SearchIcon />
       </SearchButton>
     </Form>
