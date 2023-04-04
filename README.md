@@ -60,7 +60,7 @@ This is a web app provides information about the Star Wars series. You can get i
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-Not yet
+[info-star-wars-1](https://info-star-wars-1.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
