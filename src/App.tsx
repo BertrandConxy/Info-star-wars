@@ -39,6 +39,7 @@ export default function App() {
           }
         />
         <Route path="/characters/:characterID" element={<Character />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </Layout>
   )
